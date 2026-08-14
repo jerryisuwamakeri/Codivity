@@ -7,10 +7,12 @@
 html,
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   @apply font-sans text-ink-900 antialiased bg-white;
+  width: 100%;
 }
 
 .container-page {
