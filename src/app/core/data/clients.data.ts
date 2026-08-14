@@ -27,7 +27,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     client: 'Tuwanx',
     title: 'Tuwanx Marketplace',
     category: 'Web & Mobile App',
-    status: 'In Progress',
+    status: 'Completed',
     summary:
       'A multi-vendor marketplace platform spanning a web storefront, seller dashboard and native buyer app.',
     description:
@@ -60,10 +60,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     client: 'LonePay',
     title: 'LonePay Platform',
     category: 'Fintech Solution',
-    status: 'In Progress',
+    status: 'Completed',
     summary: 'A secure digital wallet and payments platform.',
     description:
-      'We are building LonePay’s core wallet and payments infrastructure, with a focus on security, compliance and reliability.',
+      'We built LonePay’s core wallet and payments infrastructure, with a focus on security, compliance and reliability.',
     results: ['Digital wallet & transfers', 'KYC & compliance workflows', 'Bank-grade security'],
     icon: 'wallet',
     accent: 'bg-violet-50 text-violet-600',
@@ -86,10 +86,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     client: 'Spotlighticket',
     title: 'Spotlighticket',
     category: 'Ticketing Platform',
-    status: 'In Progress',
+    status: 'Completed',
     summary: 'An end-to-end event ticketing and check-in platform.',
     description:
-      'We are building Spotlighticket’s ticketing platform, from event listings and ticket sales to QR check-in on event day.',
+      'We built Spotlighticket’s ticketing platform, from event listings and ticket sales to QR check-in on event day.',
     results: ['Event listings & ticket sales', 'QR-code check-in', 'Organizer analytics dashboard'],
     icon: 'calendar-check',
     accent: 'bg-rose-50 text-rose-600',
