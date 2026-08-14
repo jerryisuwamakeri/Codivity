@@ -1,0 +1,74 @@
+<!-- Breadcrumb -->
+<div class="border-b border-ink-100 bg-ink-50/60">
+  <div class="container-page flex items-center gap-2 py-4 text-sm text-ink-500">
+    <a routerLink="/" class="hover:text-brand-600">Home</a>
+    <app-icon name="chevron-right" [size]="14"></app-icon>
+    <span class="font-medium text-ink-800">Services</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="py-16 sm:py-20">
+  <div class="container-page max-w-2xl">
+    <h1 class="text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
+      Our <span class="text-brand-600">Services</span>
+    </h1>
+    <p class="mt-5 text-lg leading-relaxed text-ink-500">
+      We offer end-to-end digital solutions designed to help your business grow, scale, and
+      succeed in today's fast-changing world.
+    </p>
+  </div>
+</section>
+
+<!-- Services grid -->
+<section class="pb-20 sm:pb-24">
+  <div class="container-page">
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div *ngFor="let service of services" class="card flex flex-col">
+        <span class="flex h-12 w-12 items-center justify-center rounded-xl" [class]="service.iconBg">
+          <app-icon [name]="service.icon" [size]="22" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-ink-900">{{ service.name }}</h3>
+        <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-500">{{ service.summary }}</p>
+        <a [routerLink]="['/services', service.slug]" class="link-arrow mt-4">
+          Learn more
+          <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+
+      <div class="card relative flex flex-col overflow-hidden border-dashed">
+        <span class="absolute right-5 top-5 rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-600"
+          >Coming Soon</span
+        >
+        <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-ink-100 text-ink-500">
+          <app-icon name="users" [size]="22" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-ink-900">Mentorship Programs</h3>
+        <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-500">
+          Hands-on mentorship for junior developers and career switchers, led by our engineering
+          team. Details coming soon.
+        </p>
+        <a routerLink="/contact" class="link-arrow mt-4">
+          Get notified
+          <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 rounded-3xl bg-ink-50 p-8 sm:p-10">
+      <app-trusted-by heading="Trusted by Innovative Businesses"></app-trusted-by>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="border-t border-ink-100">
+  <app-cta-banner
+    heading="Ready to Start Your Project?"
+    subtext="Tell us about your idea and let's build something amazing together."
+    buttonText="Let's Talk"
+    buttonLink="/contact"
+    tone="navy"
+    [fullWidth]="true"
+  ></app-cta-banner>
+</section>

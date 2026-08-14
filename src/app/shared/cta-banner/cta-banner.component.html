@@ -1,0 +1,47 @@
+<div
+  [class]="
+    (fullWidth ? 'relative overflow-hidden ' : 'relative overflow-hidden rounded-3xl ') +
+    (tone === 'navy' ? 'bg-ink-950' : 'bg-brand-600')
+  "
+>
+  <svg
+    class="pointer-events-none absolute -right-10 -top-10 h-72 w-72 text-white/10 sm:h-96 sm:w-96"
+    viewBox="0 0 200 200"
+    fill="none"
+  >
+    <circle cx="100" cy="100" r="99" stroke="currentColor" stroke-width="1"></circle>
+    <circle cx="100" cy="100" r="75" stroke="currentColor" stroke-width="1"></circle>
+    <circle cx="100" cy="100" r="50" stroke="currentColor" stroke-width="1"></circle>
+  </svg>
+  <svg
+    class="pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 text-white/10 sm:h-80 sm:w-80"
+    viewBox="0 0 200 100"
+    fill="none"
+  >
+    <path d="M0 60 C 40 10, 80 90, 120 40 S 200 60, 200 20" stroke="currentColor" stroke-width="1.5"></path>
+    <path d="M0 80 C 40 30, 80 100, 120 60 S 200 80, 200 40" stroke="currentColor" stroke-width="1.5"></path>
+    <path d="M0 100 C 40 50, 80 120, 120 80 S 200 100, 200 60" stroke="currentColor" stroke-width="1.5"></path>
+  </svg>
+
+  <div
+    [class]="fullWidth ? 'container-page relative py-16 sm:py-20' : 'relative px-8 py-10 sm:px-12 sm:py-14'"
+  >
+    <div [class]="fullWidth ? 'mx-auto max-w-2xl text-center' : 'max-w-xl'">
+      <h2 class="text-2xl font-bold text-white sm:text-3xl">{{ heading }}</h2>
+      <p class="mt-3 text-base text-white/80">{{ subtext }}</p>
+      <div [class]="fullWidth ? 'mt-8 flex justify-center' : 'mt-7'">
+        <a
+          [routerLink]="buttonLink"
+          [class]="
+            tone === 'navy'
+              ? 'btn bg-brand-600 text-white hover:bg-brand-700'
+              : 'btn bg-white text-brand-700 hover:bg-white/90'
+          "
+        >
+          {{ buttonText }}
+          <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

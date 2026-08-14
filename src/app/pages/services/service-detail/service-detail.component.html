@@ -1,0 +1,153 @@
+<ng-container *ngIf="service as s">
+  <!-- Breadcrumb -->
+  <div class="border-b border-ink-100 bg-ink-50/60">
+    <div class="container-page flex items-center gap-2 py-4 text-sm text-ink-500">
+      <a routerLink="/" class="hover:text-brand-600">Home</a>
+      <app-icon name="chevron-right" [size]="14"></app-icon>
+      <a routerLink="/services" class="hover:text-brand-600">Services</a>
+      <app-icon name="chevron-right" [size]="14"></app-icon>
+      <span class="font-medium text-ink-800">{{ s.name }}</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="py-16 sm:py-20">
+    <div class="container-page grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div>
+        <span class="flex h-14 w-14 items-center justify-center rounded-2xl" [class]="s.iconBg">
+          <app-icon [name]="s.icon" [size]="26" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">{{ s.name }}</h1>
+        <p class="mt-5 max-w-lg text-lg leading-relaxed text-ink-500">{{ s.heroDescription }}</p>
+        <a routerLink="/contact" class="btn-primary mt-8">
+          Start a Project
+          <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-brand-100/60 blur-3xl"></div>
+        <div
+          class="relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-ink-900 to-ink-950 p-8 shadow-panel"
+        >
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <div class="flex flex-col gap-2 text-xs text-ink-400">
+            <span>&nbsp;// {{ s.name }}</span>
+            <span class="text-brand-300">const <span class="text-white">codivity</span> = &#123;</span>
+            <span class="pl-4 text-emerald-300">status: <span class="text-amber-200">'shipping'</span>,</span>
+            <span class="pl-4 text-emerald-300">quality: <span class="text-amber-200">'obsessed'</span>,</span>
+            <span class="text-brand-300">&#125;;</span>
+          </div>
+          <div class="flex gap-3">
+            <div *ngFor="let stat of s.stats" class="rounded-xl bg-white/10 px-4 py-3 backdrop-blur">
+              <p class="text-lg font-bold text-white">{{ stat.value }}</p>
+              <p class="text-[11px] text-ink-300">{{ stat.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="border-y border-ink-100 bg-ink-50/60 py-14">
+    <div class="container-page grid grid-cols-1 gap-8 sm:grid-cols-3">
+      <div *ngFor="let item of s.highlights" class="flex items-start gap-4">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-card">
+          <app-icon [name]="item.icon" [size]="20" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <div>
+          <h3 class="text-sm font-bold text-ink-900">{{ item.title }}</h3>
+          <p class="mt-1 text-sm leading-relaxed text-ink-500">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we offer -->
+  <section class="py-20 sm:py-24">
+    <div class="container-page grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-bold text-ink-900 sm:text-3xl">What We Offer</h2>
+        <ul class="mt-6 flex flex-col gap-3.5">
+          <li *ngFor="let item of s.offerings" class="flex items-start gap-3">
+            <app-icon name="check-circle" [size]="20" [strokeWidth]="1.8" class="mt-0.5 shrink-0 text-brand-600"></app-icon>
+            <span class="text-sm leading-relaxed text-ink-700">{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-panel">
+        <img
+          src="images/developer-typing.jpg"
+          alt="A Codivity engineer at work"
+          class="h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5 flex gap-3">
+          <div *ngFor="let stat of s.stats" class="flex-1 rounded-2xl bg-white/95 p-4 shadow-card backdrop-blur">
+            <p class="text-lg font-bold text-ink-900">{{ stat.value }}</p>
+            <p class="text-[11px] text-ink-500">{{ stat.label }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="border-t border-ink-100 bg-ink-50/60 py-20 sm:py-24">
+    <div class="container-page">
+      <div class="max-w-xl">
+        <span class="eyebrow">How We Work</span>
+        <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">Our Process</h2>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div *ngFor="let step of processSteps">
+          <span class="text-sm font-bold text-brand-600">{{ step.index }}</span>
+          <h3 class="mt-2 text-sm font-bold text-ink-900">{{ step.title }}</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-500">{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related services -->
+  <section class="py-20 sm:py-24" *ngIf="otherServices.length">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900 sm:text-3xl">Explore Other Services</h2>
+      <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <a
+          *ngFor="let other of otherServices"
+          [routerLink]="['/services', other.slug]"
+          class="card group transition-shadow hover:shadow-panel"
+        >
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl" [class]="other.iconBg">
+            <app-icon [name]="other.icon" [size]="20" [strokeWidth]="1.8"></app-icon>
+          </span>
+          <h3 class="mt-4 text-sm font-bold text-ink-900">{{ other.name }}</h3>
+          <span class="link-arrow mt-3">
+            Learn more
+            <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-20 sm:pb-24">
+    <div class="container-page">
+      <app-cta-banner
+        heading="Let's Build Your Next Big Thing"
+        subtext="Have a project in mind? Let's bring your ideas to life."
+        buttonText="Get Started"
+        buttonLink="/contact"
+      ></app-cta-banner>
+    </div>
+  </section>
+</ng-container>

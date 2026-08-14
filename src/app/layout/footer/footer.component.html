@@ -1,0 +1,121 @@
+<footer class="bg-ink-950 text-ink-300">
+  <div class="container-page py-16">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a routerLink="/" class="flex items-center gap-2.5">
+          <img src="images/logo-icon.png" alt="Codivity" class="h-8 w-auto" />
+          <span class="text-xl font-extrabold tracking-tight text-white">Codivity</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-ink-400">
+          We build digital solutions that empower businesses, engage users and drive growth.
+        </p>
+        <div class="mt-5 flex items-center gap-3">
+          <a
+            href="https://facebook.com/codivitysolutions"
+            target="_blank"
+            rel="noopener"
+            aria-label="Codivity on Facebook"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-ink-300 transition-colors hover:border-brand-500 hover:text-white"
+          >
+            <app-icon name="facebook" [size]="16"></app-icon>
+          </a>
+          <a
+            href="https://x.com/codivitysolutions"
+            target="_blank"
+            rel="noopener"
+            aria-label="Codivity on X"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-ink-300 transition-colors hover:border-brand-500 hover:text-white"
+          >
+            <app-icon name="x" [size]="16"></app-icon>
+          </a>
+          <a
+            href="https://github.com/codivitysolutions"
+            target="_blank"
+            rel="noopener"
+            aria-label="Codivity on GitHub"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-ink-300 transition-colors hover:border-brand-500 hover:text-white"
+          >
+            <app-icon name="github" [size]="16"></app-icon>
+          </a>
+          <a
+            href="https://instagram.com/codivitysolutions"
+            target="_blank"
+            rel="noopener"
+            aria-label="Codivity on Instagram"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-ink-300 transition-colors hover:border-brand-500 hover:text-white"
+          >
+            <app-icon name="instagram" [size]="16"></app-icon>
+          </a>
+          <a
+            href="mailto:hello@codivitysolutions.com"
+            aria-label="Email Codivity"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-ink-300 transition-colors hover:border-brand-500 hover:text-white"
+          >
+            <app-icon name="mail" [size]="16"></app-icon>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Quick Links</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li><a routerLink="/" class="transition-colors hover:text-white">Home</a></li>
+          <li><a routerLink="/about" class="transition-colors hover:text-white">About Us</a></li>
+          <li><a routerLink="/services" class="transition-colors hover:text-white">Services</a></li>
+          <li><a routerLink="/solutions" class="transition-colors hover:text-white">Solutions</a></li>
+          <li><a routerLink="/portfolio" class="transition-colors hover:text-white">Portfolio</a></li>
+          <li><a routerLink="/faq" class="transition-colors hover:text-white">FAQs</a></li>
+          <li><a routerLink="/contact" class="transition-colors hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Services</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li *ngFor="let service of services">
+            <a [routerLink]="['/services', service.slug]" class="transition-colors hover:text-white">{{
+              service.name
+            }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Our Work</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li *ngFor="let item of portfolio">
+            <a [routerLink]="['/portfolio', item.slug]" class="transition-colors hover:text-white">{{
+              item.client
+            }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Contact Us</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex items-start gap-2.5">
+            <app-icon name="phone" [size]="16" class="mt-0.5 shrink-0 text-brand-400"></app-icon>
+            <a href="tel:+2348146929534" class="transition-colors hover:text-white">+234 814 692 9534</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <app-icon name="mail" [size]="16" class="mt-0.5 shrink-0 text-brand-400"></app-icon>
+            <a href="mailto:hello@codivitysolutions.com" class="min-w-0 break-words transition-colors hover:text-white"
+              >hello&#64;<wbr />codivitysolutions.com</a
+            >
+          </li>
+          <li class="flex items-start gap-2.5">
+            <app-icon name="map-pin" [size]="16" class="mt-0.5 shrink-0 text-brand-400"></app-icon>
+            <span>Abuja, Nigeria</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-page py-6 text-center text-xs text-ink-500">
+      <p>&copy; {{ currentYear }} Codivity Limited (RC9717964). All rights reserved.</p>
+    </div>
+  </div>
+</footer>

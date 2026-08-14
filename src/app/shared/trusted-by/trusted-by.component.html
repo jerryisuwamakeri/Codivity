@@ -1,0 +1,9 @@
+<div class="text-center">
+  <p class="text-xs font-semibold uppercase tracking-widest text-ink-400">{{ heading }}</p>
+  <div class="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+    <div *ngFor="let client of clients" class="flex items-center gap-2 text-ink-500">
+      <app-icon [name]="client.icon" [size]="20" [strokeWidth]="1.6"></app-icon>
+      <span class="text-base font-semibold">{{ client.name }}</span>
+    </div>
+  </div>
+</div>

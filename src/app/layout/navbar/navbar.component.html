@@ -1,0 +1,189 @@
+<header class="sticky top-0 z-50 border-b border-ink-100 bg-white/95 backdrop-blur">
+  <nav class="container-page flex h-20 items-center justify-between">
+    <a routerLink="/" (click)="closeMobile()" class="flex shrink-0 items-center gap-2.5">
+      <img src="images/logo-icon.png" alt="Codivity" class="h-8 w-auto" />
+      <span class="text-xl font-extrabold tracking-tight text-ink-900">Codivity</span>
+    </a>
+
+    <div class="hidden items-center gap-7 lg:flex">
+      <a
+        routerLink="/"
+        routerLinkActive="text-brand-600 border-brand-600"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >Home</a
+      >
+      <a
+        routerLink="/about"
+        routerLinkActive="text-brand-600 border-brand-600"
+        class="border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >About Us</a
+      >
+
+      <div
+        class="relative h-full"
+        (mouseenter)="servicesDropdownOpen = true"
+        (mouseleave)="servicesDropdownOpen = false"
+      >
+        <a
+          routerLink="/services"
+          routerLinkActive="text-brand-600 border-brand-600"
+          class="flex items-center gap-1 border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >
+          Services
+          <app-icon name="chevron-down" [size]="16" [strokeWidth]="2.2"></app-icon>
+        </a>
+
+        <div
+          *ngIf="servicesDropdownOpen"
+          class="absolute left-1/2 top-full w-[520px] -translate-x-1/2 rounded-2xl border border-ink-100 bg-white p-3 shadow-panel"
+        >
+          <div class="grid grid-cols-2 gap-1">
+            <a
+              *ngFor="let service of services"
+              [routerLink]="['/services', service.slug]"
+              class="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-ink-50"
+            >
+              <span
+                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+                [class]="service.iconBg"
+              >
+                <app-icon [name]="service.icon" [size]="18" [strokeWidth]="1.8"></app-icon>
+              </span>
+              <span>
+                <span class="block text-sm font-semibold text-ink-900">{{ service.name }}</span>
+                <span class="mt-0.5 block text-xs text-ink-500">{{ service.summary | slice: 0 : 46 }}&hellip;</span>
+              </span>
+            </a>
+          </div>
+          <a
+            routerLink="/services"
+            class="mt-2 flex items-center justify-between rounded-xl bg-ink-50 px-3 py-2.5 text-sm font-semibold text-brand-600 hover:bg-brand-50"
+          >
+            View all services
+            <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+          </a>
+        </div>
+      </div>
+
+      <a
+        routerLink="/solutions"
+        routerLinkActive="text-brand-600 border-brand-600"
+        class="border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >Solutions</a
+      >
+      <a
+        routerLink="/portfolio"
+        routerLinkActive="text-brand-600 border-brand-600"
+        class="border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >Portfolio</a
+      >
+      <a
+        routerLink="/faq"
+        routerLinkActive="text-brand-600 border-brand-600"
+        class="border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >FAQs</a
+      >
+      <a
+        routerLink="/contact"
+        routerLinkActive="text-brand-600 border-brand-600"
+        class="border-b-2 border-transparent py-6 text-sm font-semibold text-ink-700 transition-colors hover:text-brand-600"
+        >Contact</a
+      >
+    </div>
+
+    <div class="hidden shrink-0 lg:block">
+      <a routerLink="/contact" class="btn-primary">
+        Let's Talk
+        <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+      </a>
+    </div>
+
+    <button
+      type="button"
+      class="flex h-10 w-10 items-center justify-center rounded-lg text-ink-700 hover:bg-ink-50 lg:hidden"
+      (click)="toggleMobile()"
+      [attr.aria-expanded]="mobileOpen"
+      aria-label="Toggle menu"
+    >
+      <app-icon [name]="mobileOpen ? 'close' : 'menu'" [size]="24"></app-icon>
+    </button>
+  </nav>
+
+  <div *ngIf="mobileOpen" class="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-ink-100 bg-white lg:hidden">
+    <div class="container-page flex flex-col gap-1 py-4">
+      <a
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="bg-brand-50 text-brand-600"
+        (click)="closeMobile()"
+        class="rounded-lg px-3 py-3 text-sm font-semibold text-ink-800"
+        >Home</a
+      >
+      <a
+        routerLink="/about"
+        routerLinkActive="bg-brand-50 text-brand-600"
+        (click)="closeMobile()"
+        class="rounded-lg px-3 py-3 text-sm font-semibold text-ink-800"
+        >About Us</a
+      >
+
+      <button
+        type="button"
+        class="flex items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-semibold text-ink-800"
+        (click)="mobileServicesOpen = !mobileServicesOpen"
+      >
+        Services
+        <app-icon
+          name="chevron-down"
+          [size]="18"
+          [strokeWidth]="2.2"
+          [className]="mobileServicesOpen ? 'rotate-180 transition-transform' : 'transition-transform'"
+        ></app-icon>
+      </button>
+      <div *ngIf="mobileServicesOpen" class="mb-1 flex flex-col gap-0.5 pl-3">
+        <a
+          *ngFor="let service of services"
+          [routerLink]="['/services', service.slug]"
+          (click)="closeMobile()"
+          class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-600 hover:bg-ink-50"
+          >{{ service.name }}</a
+        >
+      </div>
+
+      <a
+        routerLink="/solutions"
+        routerLinkActive="bg-brand-50 text-brand-600"
+        (click)="closeMobile()"
+        class="rounded-lg px-3 py-3 text-sm font-semibold text-ink-800"
+        >Solutions</a
+      >
+      <a
+        routerLink="/portfolio"
+        routerLinkActive="bg-brand-50 text-brand-600"
+        (click)="closeMobile()"
+        class="rounded-lg px-3 py-3 text-sm font-semibold text-ink-800"
+        >Portfolio</a
+      >
+      <a
+        routerLink="/faq"
+        routerLinkActive="bg-brand-50 text-brand-600"
+        (click)="closeMobile()"
+        class="rounded-lg px-3 py-3 text-sm font-semibold text-ink-800"
+        >FAQs</a
+      >
+      <a
+        routerLink="/contact"
+        routerLinkActive="bg-brand-50 text-brand-600"
+        (click)="closeMobile()"
+        class="rounded-lg px-3 py-3 text-sm font-semibold text-ink-800"
+        >Contact</a
+      >
+
+      <a routerLink="/contact" (click)="closeMobile()" class="btn-primary mt-2 w-full">
+        Let's Talk
+        <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+      </a>
+    </div>
+  </div>
+</header>

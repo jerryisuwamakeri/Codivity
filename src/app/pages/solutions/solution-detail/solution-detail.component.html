@@ -1,0 +1,96 @@
+<ng-container *ngIf="solution as s">
+  <!-- Breadcrumb -->
+  <div class="border-b border-ink-100 bg-ink-50/60">
+    <div class="container-page flex items-center gap-2 py-4 text-sm text-ink-500">
+      <a routerLink="/" class="hover:text-brand-600">Home</a>
+      <app-icon name="chevron-right" [size]="14"></app-icon>
+      <a routerLink="/solutions" class="hover:text-brand-600">Solutions</a>
+      <app-icon name="chevron-right" [size]="14"></app-icon>
+      <span class="font-medium text-ink-800">{{ s.name }}</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="py-16 sm:py-20">
+    <div class="container-page grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div>
+        <span class="flex h-14 w-14 items-center justify-center rounded-2xl" [class]="s.iconBg">
+          <app-icon [name]="s.icon" [size]="26" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">{{ s.name }}</h1>
+        <p class="mt-5 max-w-lg text-lg leading-relaxed text-ink-500">{{ s.heroDescription }}</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a routerLink="/contact" class="btn-primary">
+            Start a Project
+            <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+          </a>
+          <a *ngIf="caseStudySlug" [routerLink]="['/portfolio', caseStudySlug]" class="btn-secondary">
+            View {{ s.relatedClient }} Case Study
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-brand-100/60 blur-3xl"></div>
+        <div class="relative flex aspect-[4/3] flex-col justify-between rounded-3xl bg-ink-50 p-8 shadow-panel">
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-card" [class]="s.iconBg">
+            <app-icon [name]="s.icon" [size]="22" [strokeWidth]="1.8"></app-icon>
+          </span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-400">Built for</p>
+            <p class="mt-1 text-xl font-bold text-ink-900">{{ s.relatedClient }}</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-500">{{ s.summary }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="border-y border-ink-100 bg-ink-50/60 py-20 sm:py-24">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900 sm:text-3xl">What This Solution Includes</h2>
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div *ngFor="let feature of s.features" class="flex items-start gap-3 rounded-2xl bg-white p-5 shadow-card">
+          <app-icon name="check-circle" [size]="20" [strokeWidth]="1.8" class="mt-0.5 shrink-0 text-brand-600"></app-icon>
+          <span class="text-sm leading-relaxed text-ink-700">{{ feature }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related solutions -->
+  <section class="py-20 sm:py-24" *ngIf="otherSolutions.length">
+    <div class="container-page">
+      <h2 class="text-2xl font-bold text-ink-900 sm:text-3xl">Other Solutions</h2>
+      <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <a
+          *ngFor="let other of otherSolutions"
+          [routerLink]="['/solutions', other.slug]"
+          class="card group transition-shadow hover:shadow-panel"
+        >
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl" [class]="other.iconBg">
+            <app-icon [name]="other.icon" [size]="20" [strokeWidth]="1.8"></app-icon>
+          </span>
+          <h3 class="mt-4 text-sm font-bold text-ink-900">{{ other.name }}</h3>
+          <span class="link-arrow mt-3">
+            Learn more
+            <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-20 sm:pb-24">
+    <div class="container-page">
+      <app-cta-banner
+        heading="Ready to Build Your {{ s.name }} Product?"
+        subtext="Let's scope your project and put together a plan to bring it to life."
+        buttonText="Get Started"
+        buttonLink="/contact"
+      ></app-cta-banner>
+    </div>
+  </section>
+</ng-container>

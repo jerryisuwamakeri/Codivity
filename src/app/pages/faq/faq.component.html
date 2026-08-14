@@ -1,0 +1,82 @@
+<!-- Breadcrumb -->
+<div class="border-b border-ink-100 bg-ink-50/60">
+  <div class="container-page flex items-center gap-2 py-4 text-sm text-ink-500">
+    <a routerLink="/" class="hover:text-brand-600">Home</a>
+    <app-icon name="chevron-right" [size]="14"></app-icon>
+    <span class="font-medium text-ink-800">FAQs</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="py-16 sm:py-20">
+  <div class="container-page max-w-2xl text-center sm:text-left">
+    <span class="eyebrow">Got Questions?</span>
+    <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
+      Frequently Asked <span class="text-brand-600">Questions</span>
+    </h1>
+    <p class="mt-5 text-lg leading-relaxed text-ink-500">
+      Answers to what founders and teams usually ask before working with us. Don't see yours?
+      Just ask.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ content -->
+<section class="pb-20 sm:pb-24">
+  <div class="container-page grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.6fr)]">
+    <!-- Sidebar -->
+    <div class="lg:sticky lg:top-28 lg:self-start">
+      <div class="rounded-3xl bg-ink-950 p-8 text-white shadow-panel">
+        <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+          <app-icon name="quote" [size]="22" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h2 class="mt-5 text-xl font-bold">Still have questions?</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink-300">
+          Can't find the answer you're looking for? Our team is happy to walk you through it.
+        </p>
+        <a routerLink="/contact" class="btn bg-brand-600 text-white hover:bg-brand-700 mt-6 w-full">
+          Contact Us
+          <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="flex flex-col gap-3">
+      <div
+        *ngFor="let faq of faqs"
+        class="overflow-hidden rounded-2xl border transition-colors"
+        [class]="faq.open ? 'border-brand-200 bg-brand-50/40' : 'border-ink-100 bg-white'"
+      >
+        <button
+          type="button"
+          (click)="toggle(faq)"
+          class="flex w-full items-center gap-4 px-5 py-5 text-left sm:px-6"
+          [attr.aria-expanded]="faq.open"
+        >
+          <span
+            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors"
+            [class]="faq.open ? 'bg-brand-600 text-white' : 'bg-ink-50 text-brand-600'"
+          >
+            <app-icon [name]="faq.icon" [size]="18" [strokeWidth]="1.8"></app-icon>
+          </span>
+          <span class="flex-1 text-sm font-bold text-ink-900 sm:text-base">{{ faq.question }}</span>
+          <span
+            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors"
+            [class]="faq.open ? 'border-brand-600 text-brand-600' : 'border-ink-200 text-ink-400'"
+          >
+            <app-icon
+              name="chevron-down"
+              [size]="16"
+              [strokeWidth]="2.2"
+              [className]="faq.open ? 'rotate-180 transition-transform' : 'transition-transform'"
+            ></app-icon>
+          </span>
+        </button>
+        <div *ngIf="faq.open" class="px-5 pb-6 pl-[4.75rem] pr-6 text-sm leading-relaxed text-ink-500 sm:px-6 sm:pl-[4.75rem]">
+          {{ faq.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,325 @@
+<!-- Hero -->
+<section class="relative overflow-hidden bg-white">
+  <div class="container-page grid grid-cols-1 items-center gap-14 py-16 lg:grid-cols-2 lg:py-24">
+    <div>
+      <h1 class="text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 sm:text-5xl">
+        Building Powerful <span class="text-brand-600">Digital Solutions</span> for Modern
+        Businesses
+      </h1>
+
+      <p class="mt-6 max-w-lg text-lg leading-relaxed text-ink-500">
+        We help startups and enterprises transform ideas into scalable digital products that
+        engage users and drive results.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a routerLink="/services" class="btn-primary">
+          Explore Our Services
+          <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+        </a>
+        <a routerLink="/portfolio" class="btn-secondary">
+          See Our Work
+          <app-icon name="arrow-right" [size]="16" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+
+      <div class="mt-10 flex items-center gap-4">
+        <div class="flex -space-x-3">
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-ink-200 text-xs font-semibold text-ink-600"
+            >JM</span
+          >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-ink-300 text-xs font-semibold text-ink-700"
+            >MC</span
+          >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-ink-400 text-xs font-semibold text-white"
+            >AS</span
+          >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-brand-600 text-xs font-bold text-white"
+            >50+</span
+          >
+        </div>
+        <p class="text-sm text-ink-500">
+          Trusted by <span class="font-semibold text-ink-800">50+ businesses</span><br />
+          to deliver impact with technology
+        </p>
+      </div>
+    </div>
+
+    <!-- Dashboard mockup -->
+    <div class="relative hidden lg:block">
+      <div class="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-brand-100/60 blur-3xl"></div>
+      <div class="relative overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-panel">
+        <div class="flex items-center justify-between border-b border-ink-100 px-5 py-4">
+          <div class="flex items-center gap-2">
+            <img src="images/logo-icon.png" alt="" class="h-5 w-auto" />
+            <span class="text-sm font-extrabold text-ink-900">Codivity</span>
+          </div>
+          <div class="flex items-center gap-3 text-ink-400">
+            <app-icon name="search" [size]="16"></app-icon>
+            <span class="relative">
+              <app-icon name="bell" [size]="16"></app-icon>
+              <span class="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-rose-500"></span>
+            </span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-ink-200 text-[10px] font-semibold text-ink-700"
+              >JD</span
+            >
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[auto,1fr]">
+          <div class="hidden w-36 shrink-0 flex-col gap-1 border-r border-ink-100 p-3 sm:flex">
+            <div class="flex items-center gap-2 rounded-lg bg-brand-50 px-3 py-2 text-brand-700">
+              <app-icon name="layers" [size]="15"></app-icon>
+              <span class="text-xs font-semibold">Dashboard</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-ink-500">
+              <app-icon name="chart" [size]="15"></app-icon>
+              <span class="text-xs font-medium">Analytics</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-ink-500">
+              <app-icon name="target" [size]="15"></app-icon>
+              <span class="text-xs font-medium">Projects</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-ink-500">
+              <app-icon name="cloud" [size]="15"></app-icon>
+              <span class="text-xs font-medium">Services</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-ink-500">
+              <app-icon name="mail" [size]="15"></app-icon>
+              <span class="text-xs font-medium">Messages</span>
+            </div>
+          </div>
+
+          <div class="min-w-0 p-4">
+            <p class="text-sm font-semibold text-ink-900">Overview</p>
+
+            <div class="mt-3 grid grid-cols-2 gap-2.5">
+              <div *ngFor="let stat of dashboardStats" class="rounded-xl border border-ink-100 p-3">
+                <p class="text-[11px] text-ink-400">{{ stat.label }}</p>
+                <p class="mt-1 text-lg font-bold text-ink-900">{{ stat.value }}</p>
+                <p class="mt-0.5 text-[10px] font-medium text-emerald-600">{{ stat.delta }}</p>
+              </div>
+            </div>
+
+            <div class="mt-3 rounded-xl border border-ink-100 p-3">
+              <div class="flex items-center justify-between">
+                <p class="text-xs font-semibold text-ink-900">Project Progress</p>
+                <span class="text-[10px] text-ink-400">This Month</span>
+              </div>
+              <svg viewBox="0 0 240 70" class="mt-2 h-16 w-full text-brand-500">
+                <polyline
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  points="0,50 20,38 40,44 60,26 80,32 100,14 120,22 140,8 160,16 180,4 200,10 220,0"
+                ></polyline>
+              </svg>
+            </div>
+
+            <div class="mt-3 rounded-xl border border-ink-100 p-3">
+              <p class="text-xs font-semibold text-ink-900">Recent Projects</p>
+              <div class="mt-2 flex flex-col gap-2">
+                <div *ngFor="let project of recentProjects" class="flex items-center justify-between gap-2">
+                  <div class="flex min-w-0 items-center gap-2">
+                    <span
+                      class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md"
+                      [class]="project.accent"
+                    >
+                      <app-icon [name]="project.icon" [size]="12"></app-icon>
+                    </span>
+                    <span class="truncate text-[11px] font-medium text-ink-700">{{ project.title }}</span>
+                  </div>
+                  <span
+                    class="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold"
+                    [class]="
+                      project.status === 'Completed'
+                        ? 'bg-emerald-50 text-emerald-600'
+                        : 'bg-brand-50 text-brand-600'
+                    "
+                    >{{ project.status }}</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trusted by -->
+<section class="border-y border-ink-100 bg-ink-50/60 py-14">
+  <div class="container-page">
+    <app-trusted-by></app-trusted-by>
+  </div>
+</section>
+
+<!-- What we do -->
+<section class="py-20 sm:py-24">
+  <div class="container-page">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-end">
+      <div>
+        <span class="eyebrow">What We Do</span>
+        <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+          End-to-end Digital Solutions Designed for Impact
+        </h2>
+      </div>
+      <p class="text-base leading-relaxed text-ink-500">
+        From strategy and design to development and support, we provide comprehensive solutions
+        that help your business grow in a fast-changing digital world.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div *ngFor="let service of services" class="card transition-shadow hover:shadow-panel">
+        <span class="flex h-12 w-12 items-center justify-center rounded-xl" [class]="service.iconBg">
+          <app-icon [name]="service.icon" [size]="22" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-ink-900">{{ service.name }}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-ink-500">{{ service.summary }}</p>
+        <a [routerLink]="['/services', service.slug]" class="link-arrow mt-4">
+          Learn more
+          <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact stats -->
+<section class="relative overflow-hidden">
+  <img
+    src="images/team-wide.jpg"
+    alt="The Codivity team working together in the studio"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <div class="absolute inset-0 bg-ink-950/80"></div>
+  <div class="container-page relative py-16 sm:py-20">
+    <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+      <div *ngFor="let stat of impactStats" class="text-center sm:text-left">
+        <p class="text-3xl font-extrabold text-white sm:text-4xl">{{ stat.value }}</p>
+        <p class="mt-1 text-sm text-ink-300">{{ stat.label }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Codivity -->
+<section class="py-20 sm:py-24">
+  <div class="container-page grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+    <div class="relative order-2 lg:order-1">
+      <div class="absolute -left-6 -top-6 h-40 w-40 rounded-full bg-brand-100/60 blur-3xl"></div>
+      <div class="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-panel">
+        <img
+          src="images/developer-typing.jpg"
+          alt="A Codivity engineer building a product"
+          class="h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-ink-950/60 via-ink-950/0 to-transparent"></div>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <span class="eyebrow">Why Codivity</span>
+      <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+        Why Businesses Choose to Build With Us
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-ink-500">
+        We're small enough to stay hands-on and fast enough to ship — without cutting corners on
+        quality.
+      </p>
+
+      <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div *ngFor="let item of whyCodivity" class="flex items-start gap-3">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+            <app-icon [name]="item.icon" [size]="18" [strokeWidth]="1.8"></app-icon>
+          </span>
+          <div>
+            <h3 class="text-sm font-bold text-ink-900">{{ item.title }}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-ink-500">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process teaser -->
+<section class="border-y border-ink-100 bg-ink-50/60 py-20 sm:py-24">
+  <div class="container-page">
+    <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+      <div class="max-w-xl">
+        <span class="eyebrow">How We Work</span>
+        <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">Our Process</h2>
+      </div>
+      <a routerLink="/faq" class="link-arrow">
+        Have questions? See our FAQs
+        <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+      </a>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <div *ngFor="let step of processSteps">
+        <span class="text-sm font-bold text-brand-600">{{ step.index }}</span>
+        <h3 class="mt-2 text-sm font-bold text-ink-900">{{ step.title }}</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-ink-500">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Selected work -->
+<section class="py-20 sm:py-24">
+  <div class="container-page">
+    <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+      <div>
+        <span class="eyebrow">Our Work</span>
+        <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+          Selected Projects
+        </h2>
+      </div>
+      <a routerLink="/portfolio" class="link-arrow">
+        View all projects
+        <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+      </a>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <a
+        *ngFor="let project of recentProjects.slice(0, 3)"
+        [routerLink]="['/portfolio', project.slug]"
+        class="card group flex flex-col transition-shadow hover:shadow-panel"
+      >
+        <span class="flex h-12 w-12 items-center justify-center rounded-xl" [class]="project.accent">
+          <app-icon [name]="project.icon" [size]="22" [strokeWidth]="1.8"></app-icon>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-ink-900">{{ project.title }}</h3>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-ink-400">{{ project.category }}</p>
+        <p class="mt-3 text-sm leading-relaxed text-ink-500">{{ project.summary }}</p>
+        <span class="link-arrow mt-4">
+          View case study
+          <app-icon name="arrow-right" [size]="14" [strokeWidth]="2.2"></app-icon>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 sm:py-24">
+  <div class="container-page">
+    <app-cta-banner
+      heading="Let's Build Your Next Big Thing"
+      subtext="Have a project in mind? Let's bring your ideas to life."
+      buttonText="Get Started"
+      buttonLink="/contact"
+    ></app-cta-banner>
+  </div>
+</section>
