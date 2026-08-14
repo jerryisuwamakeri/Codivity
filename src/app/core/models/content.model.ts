@@ -45,6 +45,9 @@ export interface TeamMember {
   name: string;
   role: string;
   image?: string;
+  linkedin?: string;
+  twitter?: string;
+  github?: string;
 }
 
 export interface Testimonial {

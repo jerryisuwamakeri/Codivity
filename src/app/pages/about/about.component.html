@@ -92,7 +92,7 @@
 
 <!-- Team -->
 <section class="pb-20 sm:pb-24">
-  <div class="container-page">
+  <div class="container-page flex flex-col items-center text-center">
     <span class="eyebrow">Our Team</span>
     <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
       The People Behind Codivity
@@ -101,15 +101,59 @@
       A small, hands-on team of engineers building and supporting every product we ship.
     </p>
 
-    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:max-w-xl">
-      <div *ngFor="let member of team" class="card text-center">
-        <div
-          class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-ink-800 text-lg font-bold text-white"
-        >
-          {{ member.name.charAt(0) }}
-        </div>
+    <div class="mx-auto mt-12 grid max-w-xl grid-cols-1 justify-items-center gap-5 sm:grid-cols-2">
+      <div *ngFor="let member of team" class="card w-full text-center">
+        <img
+          *ngIf="member.image; else memberInitial"
+          [src]="member.image"
+          [alt]="member.name"
+          class="mx-auto h-20 w-20 rounded-full object-cover"
+        />
+        <ng-template #memberInitial>
+          <div
+            class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-ink-800 text-lg font-bold text-white"
+          >
+            {{ member.name.charAt(0) }}
+          </div>
+        </ng-template>
         <h3 class="mt-4 text-sm font-bold text-ink-900">{{ member.name }}</h3>
         <p class="mt-0.5 text-xs text-ink-500">{{ member.role }}</p>
+
+        <div
+          *ngIf="member.linkedin || member.twitter || member.github"
+          class="mt-4 flex items-center justify-center gap-2 text-ink-400"
+        >
+          <a
+            *ngIf="member.linkedin"
+            [href]="member.linkedin"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-brand-600"
+            [attr.aria-label]="member.name + ' on LinkedIn'"
+          >
+            <app-icon name="linkedin" [size]="15"></app-icon>
+          </a>
+          <a
+            *ngIf="member.twitter"
+            [href]="member.twitter"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-brand-600"
+            [attr.aria-label]="member.name + ' on X'"
+          >
+            <app-icon name="x" [size]="15"></app-icon>
+          </a>
+          <a
+            *ngIf="member.github"
+            [href]="member.github"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-brand-600"
+            [attr.aria-label]="member.name + ' on GitHub'"
+          >
+            <app-icon name="github" [size]="15"></app-icon>
+          </a>
+        </div>
       </div>
     </div>
   </div>

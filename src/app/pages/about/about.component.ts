@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { CtaBannerComponent } from '../../shared/cta-banner/cta-banner.component';
@@ -8,7 +8,7 @@ import { TEAM } from '../../core/data/clients.data';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [NgFor, RouterLink, IconComponent, CtaBannerComponent],
+  imports: [NgFor, NgIf, RouterLink, IconComponent, CtaBannerComponent],
   templateUrl: './about.component.html',
 })
 export class AboutComponent {

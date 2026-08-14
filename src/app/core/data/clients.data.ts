@@ -10,8 +10,15 @@ export const CLIENTS: Client[] = [
 ];
 
 export const TEAM: TeamMember[] = [
-  { name: 'Jerry Isuwa Makeri', role: 'President & Head of Engineering' },
-  { name: 'Nathan Makeri', role: 'Developer' },
+  {
+    name: 'Jerry Isuwa Makeri',
+    role: 'President & Head of Engineering',
+    image: 'images/team/jerry.jpg',
+    linkedin: 'https://www.linkedin.com/in/jerryisuwamakeri/',
+    twitter: 'https://x.com/makerijerry',
+    github: 'https://github.com/jerryisuwamakeri',
+  },
+  { name: 'Nathan Makeri', role: 'Developer', image: 'images/team/nathan.jpg' },
 ];
 
 export const PORTFOLIO: PortfolioItem[] = [
